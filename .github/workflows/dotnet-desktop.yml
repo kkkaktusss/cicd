@@ -24,8 +24,3 @@ jobs:
           name: Build ${{ github.run_number }}
           path: .\outputs\test1.zip
 
-      - name: Upload docs
-        uses: actions/upload-artifact@v3
-        with:
-          name: Docs ${{ github.run_number }}
-          path: .\outputs\test1.zip
