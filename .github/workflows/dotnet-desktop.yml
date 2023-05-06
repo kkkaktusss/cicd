@@ -23,7 +23,5 @@ jobs:
         with:
           name: Build ${{ github.run_number }}
           path: .\outputs\test1.zip
-          
-      - name: echo123
-        run: echo 123
+        
 
