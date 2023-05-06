@@ -137,7 +137,7 @@ namespace Курсовая_работа_2
             }
             Console.WriteLine($"Выходной регистр: {result} - искомое число в двоичной системе");
 
-            Console.Readline();
+            Console.ReadLine();
         }
         static string Vvod(string inf, string type)
         {
