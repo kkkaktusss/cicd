@@ -9,18 +9,20 @@ jobs:
     name: Build and upload artifact
     runs-on: windows-latest
     steps:
+    # Actions от github: проверяет репозиторий, гит и т.д.
       - name: Checkout
         uses: actions/checkout@v3
-
+    #Позволяет переключаться на конкретную версию SDK.
       - name: Install Setup .NET Core SDK 6.0
         uses: subosito/flutter-action@v2
-
+    #Публикует приложение как зависимое от платформы приложение. Чтобы запустить приложение, на целевом компьютере должна быть установлена совместимая .NET среда выполнения. Доступно с .NET версии 6 SDK.
       - name: Build
         run: dotnet build -o .\outputs\test1.zip
-
+    #При этом загружаются артефакты из вашего рабочего процесса, что позволяет обмениваться данными между заданиями и сохранять данные после завершения рабочего процесса.
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
+          #Добавление в переменную Path
           name: Build ${{ github.run_number }}
           path: .\outputs\test1.zip
         
