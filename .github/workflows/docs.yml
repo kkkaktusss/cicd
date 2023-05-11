@@ -1,1 +1,49 @@
+on:
+  push:
+    branches: master
 
+jobs:
+  build-docs:
+    name: Build Docs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Build Documentation
+      uses: nikeee/docfx-action@v1.0.0
+      with:
+        args: ./docfx.json
+
+    #- name: Deploy to GitHub Pages
+     # uses: peaceiris/actions-gh-pages@v3
+     # with:
+     #   github_token: ${{ secrets.key }}
+      #  publish_dir: ./docs
+  publish-docs:
+    needs: [build-docs]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Chekout
+      uses: actions/checkout@v3
+    - name: Dotnet Setup
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.x
+
+    - run: dotnet tool update -g docfx
+    - run: docfx ./docfx.json
+    #- run: docfx docfx_project/docfx.json
+
+    - name: Upload build
+      uses: actions/upload-artifact@v3
+      with:
+        name: Build ${{ github.run_number }} 
+        path: ./
+    - uses: actions/checkout@v1
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.key }}
+        publish_dir: ./_site/
