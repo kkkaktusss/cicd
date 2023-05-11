@@ -3,7 +3,26 @@ on:
     branches: master
 
 jobs:
+  build:
+    name: Build and upload artifact
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Setup .NET Core SDK 6.0
+        uses: subosito/flutter-action@v2
+
+      - name: Build
+        run: dotnet build -o .\outputs\test1.zip
+
+      - name: Upload build
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build ${{ github.run_number }}
+          path: ./
   build-docs:
+    needs: [build]
     name: Build Docs
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +34,11 @@ jobs:
       with:
         args: ./docfx_project/docfx.json
 
+    #- name: Deploy to GitHub Pages
+     # uses: peaceiris/actions-gh-pages@v3
+     # with:
+     #   github_token: ${{ secrets.GITHUB_TOKEN }}
+      #  publish_dir: ./docs
   publish-docs:
     needs: [build-docs]
     runs-on: ubuntu-latest
@@ -28,6 +52,7 @@ jobs:
 
     - run: dotnet tool update -g docfx
     - run: docfx ./docfx_project/docfx.json
+    #- run: docfx docfx_project/docfx.json
 
     - name: Upload build
       uses: actions/upload-artifact@v3
