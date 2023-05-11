@@ -15,11 +15,6 @@ jobs:
       with:
         args: ./docfx_project/docfx.json
 
-    #- name: Deploy to GitHub Pages
-     # uses: peaceiris/actions-gh-pages@v3
-     # with:
-     #   github_token: ${{ secrets.key }}
-      #  publish_dir: ./docs
   publish-docs:
     needs: [build-docs]
     runs-on: ubuntu-latest
@@ -33,7 +28,6 @@ jobs:
 
     - run: dotnet tool update -g docfx
     - run: docfx ./docfx_project/docfx.json
-    #- run: docfx docfx_project/docfx.json
 
     - name: Upload build
       uses: actions/upload-artifact@v3
