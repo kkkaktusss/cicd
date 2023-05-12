@@ -32,7 +32,7 @@ jobs:
     - name: Build Documentation
       uses: nikeee/docfx-action@v1.0.0
       with:
-        args: ./docfx_project/docfx.json
+        args: docfx.json
 
     #- name: Deploy to GitHub Pages
      # uses: peaceiris/actions-gh-pages@v3
@@ -51,7 +51,7 @@ jobs:
         dotnet-version: 7.x
 
     - run: dotnet tool update -g docfx
-    - run: docfx ./docfx_project/docfx.json
+    - run: docfx docfx.json
     #- run: docfx docfx_project/docfx.json
 
     - name: Upload build
