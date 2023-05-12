@@ -6,7 +6,7 @@
           "files": [
             "**/*.csproj"
           ],
-          "src": "C:\\Users\\Admin\\source\\repos\\TestDocs"
+          "src": "C:\\Users\\Admin\\source\\repos\\cicd"
         }
       ],
       "dest": "api",
