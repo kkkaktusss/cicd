@@ -4,14 +4,18 @@
       "src": [
         {
           "files": [
-            "**/*.csproj"
-          ],
-          "src": "C:\\Users\\Admin\\source\\repos\\cicd"
+            "bin/**/*.dll"
+          ]
         }
       ],
       "dest": "api",
+      "includePrivateMembers": false,
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "noRestore": false,
+      "namespaceLayout": "flattened",
+      "memberLayout": "samePage",
+      "allowCompilationErrors": false
     }
   ],
   "build": {
@@ -38,28 +42,15 @@
         ]
       }
     ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
-        ]
-      }
-    ],
-    "dest": "_site",
+    "output": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "modern"
     ],
     "postProcessors": [],
-    "markdownEngineName": "markdig",
-    "noLangKeyword": false,
     "keepFileLink": false,
-    "cleanupCacheHistory": false,
     "disableGitFeatures": false
   }
 }
