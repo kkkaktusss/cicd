@@ -1,11 +1,12 @@
-{
+
   "metadata": [
     {
       "src": [
         {
           "files": [
-            "**/*.dll"
-          ]
+            "*.csproj"
+          ],
+          "src": "/ConsoleApp2/"
         }
       ],
       "dest": "api",
