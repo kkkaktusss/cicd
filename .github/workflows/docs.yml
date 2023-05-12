@@ -47,4 +47,4 @@ jobs:
       with:
         deploy_key: ${{ secrets.CODE }}
         publish_branch: gh_pages
-        publish_dir: ./_site
+        publish_dir: ./_site/
