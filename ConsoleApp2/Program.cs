@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Курсовая_работа_2
 {
+    ///summary
+    ///asadsaddassad
+    ////</summary>
     class Program
     {
         static void Main(string[] args)
