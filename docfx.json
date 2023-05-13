@@ -5,8 +5,7 @@
         {
           "files": [
             "*.cs"
-          ],
-          "src": "${{github.workspace}}/ConsoleApp2"
+          ]
         }
       ],
       "dest": "api",
