@@ -20,6 +20,6 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.CODE }}
+        deploy_key: ${{ secrets.CODE }}
         publish_dir: ./docfx_project/_site
         publish_branch: gh_pages
