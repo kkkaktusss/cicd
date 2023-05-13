@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace Курсовая_работа_2
 {
-    ///summary
-    ///asadsaddassad
-    ////</summary>
+    //interface
+    /// <summary>
+    /// This is <b>basic</b> interface of all animal.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
