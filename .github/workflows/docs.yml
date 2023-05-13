@@ -14,12 +14,12 @@ jobs:
         dotnet-version: 7.x
 
     - run: dotnet tool update -g docfx
-    - run: docfx build docfx_project/docfx.json
+    - run: docfx build docfx.json
     #- run: docfx docfx_project/docfx.json
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.CODE }}
-        publish_dir: ./docfx_project/_site
+        publish_dir: ./_site
         publish_branch: gh_pages
