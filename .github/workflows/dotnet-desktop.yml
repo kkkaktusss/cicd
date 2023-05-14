@@ -25,5 +25,9 @@ jobs:
           #Добавление в переменную Path
           name: Build ${{ github.run_number }}
           path: .\outputs\test1.zip
+          
+          
+          
+          
         
 
